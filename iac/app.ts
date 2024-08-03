@@ -1,6 +1,7 @@
 import * as cdk from 'aws-cdk-lib'
 import { envs } from '../src/envs'
 import { IacStack } from './iac/iac_stack'
+import { stage } from './get_stage_app'
 
 console.log('Starting the CDK')
 
@@ -16,7 +17,7 @@ const tags = {
   'owner': 'DevDynastySolutions',
 }
 
-new IacStack(app, `${stackName}-${envs.STAGE}`, {
+new IacStack(app, `${stackName}-${stage}`, {
   env: {
     account: awsAccount,
     region: awsRegion,
