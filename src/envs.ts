@@ -13,5 +13,7 @@ export const envs = {
   AWS_REGION: process.env.AWS_REGION,
   GITHUB_REF_NAME: process.env.GITHUB_REF,
   STAGE: process.env.STAGE,
+  EMAIL_LOGIN: process.env.EMAIL_LOGIN,
+  EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
 }
 
