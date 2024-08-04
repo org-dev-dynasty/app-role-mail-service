@@ -10,8 +10,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: envs.EMAIL_LOGIN,
-    pass: envs.EMAIL_PASSWORD,
+    user: "contato@roleapp.com.br",
+    pass: "!@#RinhaDeMina010504"
   },
 });
 
@@ -22,7 +22,7 @@ export async function sendEmail(to: string, subject: string, text: string) {
   }
 
   const mailOptions = {
-    from: envs.EMAIL_LOGIN,
+    from: "contato@roleapp.com.br",
     to,
     subject,
     text,
