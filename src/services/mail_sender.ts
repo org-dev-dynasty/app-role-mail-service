@@ -1,20 +1,26 @@
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import { FailToSendEmail } from "../helpers/errors/failed_email_error";
+import { envs } from "../envs";
 
 dotenv.config();
 
 const transporter = nodemailer.createTransport({
   service: "Outlook365",
   auth: {
-    user: process.env.EMAIL_LOGIN,
-    pass: process.env.EMAIL_PASSWORD,
+    user: envs.EMAIL_LOGIN,
+    pass: envs.EMAIL_PASSWORD,
   },
 });
 
 export async function sendEmail(to: string, subject: string, text: string) {
+  if (!envs.EMAIL_LOGIN || !envs.EMAIL_PASSWORD) {
+    console.error("CASA CAIU!!!");
+    throw new Error("CASA CAIU!!!");
+  }
+
   const mailOptions = {
-    from: process.env.EMAIL_LOGIN,
+    from: envs.EMAIL_LOGIN,
     to,
     subject,
     text,
@@ -24,7 +30,7 @@ export async function sendEmail(to: string, subject: string, text: string) {
     const info = await transporter.sendMail(mailOptions);
     console.log(`E-mail enviado para ${to}: ${info.response}`);
   } catch (error: any) {
-    throw new FailToSendEmail(`Erro ao enviar e-mail para ${to}: ${error}`);
     console.error(`Erro ao enviar e-mail para ${to}: ${error}`);
+    throw new FailToSendEmail(`Erro ao enviar e-mail para ${to}: ${error}`);
   }
 }
