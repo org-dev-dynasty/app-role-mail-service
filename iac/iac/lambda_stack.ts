@@ -41,6 +41,5 @@ export class LambdaStack extends Construct {
       value: lambdaUrl.url,
       description: "The URL to access the lambda function"
     })
-
   }
 }
