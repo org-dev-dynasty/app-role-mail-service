@@ -48,6 +48,8 @@ jobs:
             echo ${{ env.AWS_ACCOUNT_ID }}
             echo ${{ env.STACK_NAME }}
             echo ${{ env.GITHUB_REF }}
+            echo ${{ env.EMAIL_LOGIN }}
+            echo ${{ env.EMAIL_PASSWORD }}
 
         - name: Deploy with CDK
           run: |
@@ -61,4 +63,6 @@ jobs:
             AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
             STACK_NAME: ${{ secrets.STACK_NAME }}
             GITHUB_REF: ${{ github.ref_name }}
+            EMAIL_LOGIN: ${{ secrets.EMAIL_LOGIN }}
+            EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
        
