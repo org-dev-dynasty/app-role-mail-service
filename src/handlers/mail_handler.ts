@@ -19,7 +19,7 @@ export function emailHandler(req: Request, res: Response) {
 
     return res.status(200).send("Email sent successfully");
   } catch (error: any) {
-    return res.status(400).send(error.message);
     console.error("caiu a baia");
+    return res.status(400).send(error.message);
   }
 }
