@@ -5,5 +5,7 @@ declare namespace NodeJS {
     AWS_REGION: string
     GITHUB_REF: string
     STAGE: string
+    EMAIL_LOGIN: string
+    EMAIL_PASSWORD: string
   }
 }
