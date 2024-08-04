@@ -6,7 +6,9 @@ import { envs } from "../envs";
 dotenv.config();
 
 const transporter = nodemailer.createTransport({
-  service: "Outlook365",
+  host: "smtp.zoho.com",
+  port: 465,
+  secure: true,
   auth: {
     user: envs.EMAIL_LOGIN,
     pass: envs.EMAIL_PASSWORD,
