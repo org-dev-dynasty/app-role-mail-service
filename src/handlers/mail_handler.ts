@@ -5,7 +5,7 @@ export function emailHandler(req: Request, res: Response) {
   try {
     const { to, subject, text } = req.body;
 
-    if (!subject || !text || !to) {
+    if (!subject) {
       throw new Error("Missing parameters");
     }
     if (!text) {
