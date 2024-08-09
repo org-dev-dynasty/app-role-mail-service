@@ -8,7 +8,10 @@ import cors from "cors";
 const app = express();
 app.use(express.json());
 app.use(router);
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
+
 
 if (envs.STAGE === STAGE.TEST) {
   app.listen(3000, () => {
