@@ -37,8 +37,8 @@ export class LambdaStack extends Construct {
       authType: lambda.FunctionUrlAuthType.NONE,
       cors: {
         allowedOrigins: ["*"],
-        allowedHeaders: ["GET", "POST", "OPTIONS"],
-        allowedMethods: [lambda.HttpMethod.GET, lambda.HttpMethod.POST, lambda.HttpMethod.OPTIONS],
+        allowedHeaders: ["GET", "POST"],
+        allowedMethods: [lambda.HttpMethod.GET, lambda.HttpMethod.POST],
         maxAge: Duration.seconds(3600),
       }
     })
