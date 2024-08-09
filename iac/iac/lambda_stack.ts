@@ -34,7 +34,13 @@ export class LambdaStack extends Construct {
     })
 
     const lambdaUrl = this.lambdaHandler.addFunctionUrl({
-      authType: lambda.FunctionUrlAuthType.NONE
+      authType: lambda.FunctionUrlAuthType.NONE,
+      cors: {
+        allowedOrigins: ["*"],
+        allowedHeaders: ["GET", "POST", "OPTIONS"],
+        allowedMethods: [lambda.HttpMethod.GET, lambda.HttpMethod.POST, lambda.HttpMethod.OPTIONS],
+        maxAge: Duration.seconds(3600),
+      }
     })
 
     new CfnOutput(this, `${stackName}-${stage}-lambda-url`, {
